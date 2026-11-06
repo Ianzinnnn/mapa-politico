@@ -1,122 +1,92 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mapa Político — Descubra seu perfil</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mapa Ideológico — Teste político</title>
 <style>
-:root{--bg:#0b1020;--panel:#131b2e;--panel2:#18233a;--text:#edf2ff;--muted:#9eacc7;--line:#2a3854;--accent:#8b7cff;--accent2:#54d6c7;--gold:#f3bd68}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 15% 0%,#1a2342 0%,var(--bg) 52%);color:var(--text);font:16px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial}
-.wrap{max-width:900px;margin:0 auto;padding:28px 18px 60px}.top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:32px}.brand{font-weight:800;letter-spacing:.08em;font-size:13px;color:var(--accent2)}.tag{border:1px solid var(--line);border-radius:999px;padding:6px 11px;color:var(--muted);font-size:12px}
-.hero{padding:30px 0 24px}.eyebrow{color:var(--accent2);font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:12px}.hero h1{font-size:clamp(34px,6vw,58px);line-height:1.04;letter-spacing:-.04em;margin:12px 0}.hero p{color:var(--muted);max-width:650px;font-size:17px}
-.panel{background:linear-gradient(180deg,rgba(24,35,58,.96),rgba(19,27,46,.96));border:1px solid var(--line);border-radius:22px;padding:clamp(20px,4vw,34px);box-shadow:0 22px 60px #0003}
-.btn{border:0;border-radius:12px;padding:13px 18px;font:inherit;font-weight:750;cursor:pointer;transition:.15s}.btn.primary{background:linear-gradient(120deg,var(--accent),#6d8cff);color:white}.btn.secondary{background:#202c45;color:var(--text);border:1px solid var(--line)}.btn:disabled{opacity:.35;cursor:not-allowed}.btn:hover:not(:disabled){transform:translateY(-1px);filter:brightness(1.08)}
-.row{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}.progress-meta{display:flex;justify-content:space-between;color:var(--muted);font-size:13px;margin-bottom:10px}.progress{height:7px;background:#25324c;border-radius:99px;overflow:hidden;margin-bottom:28px}.progress>div{height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width .25s}
-.category{display:inline-flex;background:#262a4b;color:#c8c2ff;padding:5px 10px;border-radius:999px;font-size:12px;font-weight:700;margin-bottom:13px}.question{font-size:clamp(22px,4vw,30px);line-height:1.25;letter-spacing:-.02em;margin:0 0 22px}.answers{display:grid;gap:11px}.answer{display:flex;gap:13px;align-items:flex-start;text-align:left;width:100%;background:#111a2c;border:1px solid #2a3854;color:var(--text);padding:15px 16px;border-radius:14px;cursor:pointer;font:inherit;transition:.15s}.answer:hover{border-color:#7770d9;background:#1a2340}.answer.selected{border-color:var(--accent);background:#29264b;box-shadow:inset 0 0 0 1px var(--accent)}.letter{flex:0 0 27px;height:27px;border-radius:8px;background:#27334d;display:grid;place-items:center;font-size:12px;font-weight:800;color:#c6d1e9}.answer.selected .letter{background:var(--accent);color:white}.answer span:last-child{padding-top:1px}.nav{margin-top:25px;display:flex;justify-content:space-between;gap:12px}.note{font-size:12px;color:var(--muted);margin-top:20px}
-.hidden{display:none!important}.result-head{text-align:center;padding:8px 0 25px}.result-head .eyebrow{margin-bottom:10px}.result-head h2{font-size:clamp(30px,5vw,44px);line-height:1.08;margin:8px 0 12px;letter-spacing:-.03em}.result-head p{color:var(--muted);max-width:660px;margin:0 auto}.result-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:24px 0}.axis{border:1px solid var(--line);background:#10182a;border-radius:15px;padding:16px}.axis-title{font-weight:750;font-size:14px}.axis-desc{color:var(--muted);font-size:12px;margin:3px 0 12px}.axis-line{height:8px;background:linear-gradient(90deg,#5b9eff,#4c5774,#e4a65c);border-radius:99px;position:relative}.marker{position:absolute;top:50%;width:16px;height:16px;border:3px solid white;background:var(--accent);border-radius:50%;transform:translate(-50%,-50%);box-shadow:0 0 0 4px #8b7cff33}.axis-labels{display:flex;justify-content:space-between;color:var(--muted);font-size:11px;margin-top:7px}.result-section{border-top:1px solid var(--line);padding-top:20px;margin-top:20px}.result-section h3{font-size:17px;margin:0 0 10px}.chips{display:flex;gap:8px;flex-wrap:wrap}.chip{border:1px solid #3b4770;background:#202848;color:#d7d4ff;border-radius:99px;padding:7px 11px;font-size:13px;font-weight:700}.caveat{color:var(--muted);font-size:13px;background:#10182a;border:1px solid var(--line);border-radius:13px;padding:14px;margin-top:18px}.footer{color:#7585a5;text-align:center;font-size:12px;margin-top:28px}
-@media(max-width:620px){.result-grid{grid-template-columns:1fr}.top{margin-bottom:16px}.nav .btn{flex:1}.hero{padding-top:20px}}
-</style>
-</head>
-<body>
-<div class="wrap">
-  <div class="top"><div class="brand">◈ MAPA POLÍTICO</div><div class="tag">Quiz de autoconhecimento · 25 questões</div></div>
-  <section id="intro" class="hero">
-    <div class="eyebrow">Ideias, valores e visão de país</div>
-    <h1>Onde você se<br><span style="color:var(--accent2)">posiciona politicamente?</span></h1>
-    <p>Explore sua visão sobre economia, costumes, autoridade, democracia e nacionalismo. O resultado é um retrato aproximado das suas respostas — não um rótulo definitivo.</p>
-    <div class="panel" style="margin-top:24px">
-      <div class="row"><div><strong>25 perguntas · cerca de 5 minutos</strong><div style="color:var(--muted);font-size:13px;margin-top:4px">Escolha a alternativa que mais se aproxima do que você pensa.</div></div><button class="btn primary" id="start">Começar quiz →</button></div>
-    </div>
-  </section>
-  <section id="quiz" class="panel hidden">
-    <div class="progress-meta"><span id="stepText">Pergunta 1 de 25</span><span id="pct">4%</span></div>
-    <div class="progress"><div id="bar"></div></div>
-    <div class="category" id="category">Economia e Estado</div>
-    <h2 class="question" id="question"></h2>
-    <div class="answers" id="answers"></div>
-    <div class="nav"><button class="btn secondary" id="back">← Voltar</button><button class="btn primary" id="next" disabled>Próxima →</button></div>
-    <div class="note">Não há resposta certa ou errada. Você pode voltar e mudar suas escolhas.</div>
-  </section>
-  <section id="result" class="panel hidden">
-    <div class="result-head"><div class="eyebrow">Seu mapa de ideias</div><h2 id="resultTitle"></h2><p id="resultIntro"></p></div>
-    <div class="result-grid" id="axes"></div>
-    <div class="result-section"><h3>Correntes que podem se aproximar do seu perfil</h3><div class="chips" id="ideologies"></div><p id="ideologyText" style="color:var(--muted);font-size:14px;margin-top:12px"></p></div>
-    <div class="result-section"><h3>O que suas respostas sugerem</h3><div id="summary" style="color:var(--muted);font-size:14px"></div></div>
-    <div class="caveat"><strong style="color:var(--text)">Importante:</strong> este quiz é educativo e exploratório, não é um instrumento científico ou diagnóstico. Ideologias são complexas; uma resposta isolada não define alguém. O resultado se baseia nas alternativas escolhidas e pode não capturar nuances.</div>
-    <div class="nav"><button class="btn secondary" id="restart">↻ Refazer teste</button><button class="btn primary" id="print">Salvar / imprimir resultado</button></div>
-  </section>
-  <div class="footer">MAPA POLÍTICO · Um convite à reflexão, não uma caixa para te encaixar.</div>
+:root{--bg:#0b1020;--panel:#131b2f;--panel2:#19243c;--text:#edf2ff;--muted:#a9b6d1;--accent:#7c9cff;--line:#2b3856;--good:#9be3c1}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#182646 0,#0b1020 60%);color:var(--text);font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+main{max-width:920px;margin:auto;padding:26px 16px 60px}.hero{padding:28px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(135deg,#182744,#121a2e);margin-bottom:18px}
+.eyebrow{color:var(--accent);font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:.75rem}h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.1;margin:8px 0 12px}p{color:var(--muted)}.note{background:#10182a;border-left:3px solid var(--accent);padding:12px 14px;border-radius:8px;color:var(--muted)}
+.toolbar{display:flex;justify-content:space-between;gap:12px;align-items:center;margin:18px 0}.progress{height:8px;background:#26324b;border-radius:9px;overflow:hidden;flex:1}.progress span{display:block;height:100%;background:var(--accent);width:0;transition:width .2s}.count{font-size:.9rem;color:var(--muted);white-space:nowrap}
+.section{color:var(--accent);font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;font-weight:800;margin-bottom:8px}.question{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px;margin:14px 0}.question h2{font-size:1.15rem;margin:0 0 8px}.context{font-size:.92rem;margin:0 0 17px;color:var(--muted)}
+.choices{display:grid;gap:9px}.choice{display:flex;gap:11px;align-items:flex-start;border:1px solid var(--line);background:#10182a;padding:12px 14px;border-radius:11px;cursor:pointer;color:var(--text)}.choice:hover{border-color:#7189c7}.choice:has(input:checked){background:#202f50;border-color:var(--accent)}.choice input{margin-top:5px;accent-color:var(--accent)}
+button{border:0;border-radius:10px;padding:12px 18px;font-weight:750;font-size:1rem;cursor:pointer;background:var(--accent);color:#091123}button.secondary{background:#25324d;color:var(--text);border:1px solid var(--line)}button:disabled{opacity:.4;cursor:not-allowed}.actions{display:flex;justify-content:space-between;gap:12px;margin:20px 0}.hidden{display:none!important}
+.result{background:var(--panel);border:1px solid var(--line);padding:24px;border-radius:18px}.result h2{margin-top:0}.axis{margin:20px 0}.axishead{display:flex;justify-content:space-between;gap:12px;font-size:.9rem}.track{height:12px;background:#26324b;border-radius:20px;margin:8px 0;overflow:hidden}.track span{display:block;height:100%;background:linear-gradient(90deg,#7c9cff,#9be3c1);border-radius:20px}.axisdesc{font-size:.85rem;color:var(--muted)}.tag{display:inline-block;background:#25324d;color:#c9d7ff;border:1px solid #3a4c70;padding:5px 10px;border-radius:999px;margin:4px;font-size:.85rem}
+footer{font-size:.85rem;color:var(--muted);margin-top:25px} @media(max-width:560px){.hero{padding:20px}.question{padding:17px}.actions button{flex:1}}
+</style></head><body><main>
+<header class="hero"><div class="eyebrow">Questionário político multidimensional</div><h1>Mapa Ideológico</h1><p>Um questionário de posições políticas concretas — não um teste para te empurrar a um rótulo.</p><div class="note">Responda considerando o que você acredita que deveria ser política pública no Brasil. Não há respostas corretas. Você pode pular perguntas; o resultado informa quando uma dimensão tem poucas respostas.</div></header>
+<div id="quiz">
+<div class="toolbar"><div class="progress"><span id="bar"></span></div><div class="count" id="count"></div></div>
+<div id="question"></div><div class="actions"><button class="secondary" id="prev">← Voltar</button><button id="next">Próxima →</button></div>
 </div>
+<section id="results" class="result hidden"></section>
+<footer>Este teste é uma ferramenta educativa e exploratória, não uma avaliação científica ou diagnóstico. As dimensões são apresentadas separadamente para evitar reduzir posições complexas a um único rótulo.</footer>
+</main>
 <script>
-const questions=[
-{cat:"Economia e Estado",q:"O governo deveria cobrar mais impostos dos ricos para financiar serviços públicos e diminuir a desigualdade?",a:["Sim, bastante","Sim, mas com moderação","Não, impostos deveriam ser menores","Não tenho opinião"],s:[-2,-1,2,0]},
-{cat:"Economia e Estado",q:"Empresas privadas geralmente administram serviços melhor do que o Estado?",a:["Sim, na maioria dos casos","Depende do serviço","Não, o Estado costuma ser melhor","Não tenho opinião"],s:[2,0,-2,0]},
-{cat:"Economia e Estado",q:"O governo deveria garantir saúde e educação gratuitas para todos, mesmo que exija impostos mais altos?",a:["Sim, são direitos fundamentais","Sim, mas sem aumentar muito os impostos","Prefiro serviços privados com menor tributação","Não tenho opinião"],s:[-2,-1,2,0]},
-{cat:"Economia e Estado",q:"O salário mínimo deveria aumentar significativamente para melhorar a vida dos trabalhadores?",a:["Sim, mesmo que aumente custos das empresas","Sim, desde que seja gradual","Não, o mercado deveria determinar salários","Não tenho opinião"],s:[-2,-1,2,0]},
-{cat:"Economia e Estado",q:"O capitalismo é o melhor sistema econômico?",a:["Sim, com pouca intervenção estatal","Sim, mas precisa de regulação e políticas sociais","Não, prefiro um sistema socialista","Não sei"],s:[2,0,-2,0]},
-{cat:"Costumes e sociedade",q:"O casamento entre pessoas do mesmo sexo deveria ser legal?",a:["Sim, plenamente","Sim, mas tenho ressalvas","Não deveria ser legal","Não tenho opinião"],s:[-2,-1,2,0],axis:"social"},
-{cat:"Costumes e sociedade",q:"O aborto deveria ser legalizado?",a:["Sim, em ampla medida","Sim, em situações específicas","Não, deveria ser proibido","Não tenho opinião"],s:[-2,-1,2,0],axis:"social"},
-{cat:"Costumes e sociedade",q:"O Estado deveria ser neutro em relação à religião?",a:["Sim, Estado laico é fundamental","Sim, mas a religião pode influenciar valores culturais","Não, o país deveria ter uma religião como referência oficial","Não tenho opinião"],s:[-2,-1,2,0],axis:"social"},
-{cat:"Costumes e sociedade",q:"Tradições e valores familiares devem ser preservados, mesmo que isso limite mudanças sociais?",a:["Sim, são fundamentais","Depende da tradição","Não, a sociedade deve evoluir livremente","Não tenho opinião"],s:[2,1,-2,0],axis:"social"},
-{cat:"Costumes e sociedade",q:"As pessoas deveriam ter liberdade para viver como quiserem, desde que não prejudiquem outras pessoas?",a:["Sim, quase sem restrições","Sim, mas com alguns limites morais e legais","Não, o Estado deve impor mais regras de comportamento","Não tenho opinião"],s:[-2,1,2,0],axis:"social"},
-{cat:"Segurança e autoridade",q:"Como o Brasil deveria combater o crime?",a:["Endurecendo penas e dando mais poder à polícia","Com punição rigorosa e prevenção social","Principalmente com educação e redução da desigualdade","Não tenho opinião"],s:[2,0,-2,0],axis:"authority"},
-{cat:"Segurança e autoridade",q:"Você é a favor da pena de morte para crimes extremamente graves?",a:["Sim","Não","Depende do crime","Não tenho opinião"],s:[2,-2,1,0],axis:"authority"},
-{cat:"Segurança e autoridade",q:"O cidadão deveria ter direito a possuir armas para defesa pessoal?",a:["Sim, com menos restrições","Sim, mas com controle rigoroso","Não, armas deveriam ser muito restritas","Não tenho opinião"],s:[2,1,-2,0],axis:"authority"},
-{cat:"Segurança e autoridade",q:"O governo deveria ter mais poder para manter a ordem, mesmo reduzindo algumas liberdades?",a:["Sim, a ordem é mais importante","Em algumas situações excepcionais","Não, liberdades individuais devem prevalecer","Não tenho opinião"],s:[2,1,-2,0],axis:"authority"},
-{cat:"Segurança e autoridade",q:"Policiais deveriam ter maior liberdade para agir contra criminosos?",a:["Sim, muito mais liberdade","Sim, mas com fiscalização rigorosa","Não, poderes atuais já são suficientes ou excessivos","Não tenho opinião"],s:[2,1,-2,0],axis:"authority"},
-{cat:"Democracia e nação",q:"Qual modelo de governo você considera melhor?",a:["Democracia liberal, com direitos e instituições fortes","Democracia, mas com um líder forte e decisivo","Um governo autoritário pode ser melhor em algumas circunstâncias","Não tenho opinião"],s:[-2,1,2,0],axis:"authority"},
-{cat:"Democracia e nação",q:"O presidente deveria poder tomar decisões importantes sem depender tanto do Congresso?",a:["Não, o Congresso deve fiscalizar e limitar o presidente","Em algumas situações, sim","Sim, o presidente deveria ter muito mais poder","Não tenho opinião"],s:[-2,0,2,0],axis:"authority"},
-{cat:"Democracia e nação",q:"Patriotismo e nacionalismo são importantes para um país?",a:["Sim, são fundamentais","Sim, mas sem desrespeitar outros países","Não, devemos priorizar uma visão global","Não tenho opinião"],s:[2,1,-2,0],axis:"nation"},
-{cat:"Democracia e nação",q:"O Brasil deveria priorizar seus interesses, mesmo que isso prejudique relações econômicas com outros países?",a:["Sim, os interesses nacionais vêm primeiro","Depende da situação","Não, cooperação internacional é mais importante","Não tenho opinião"],s:[2,1,-2,0],axis:"nation"},
-{cat:"Democracia e nação",q:"Movimentos de esquerda e direita deveriam poder defender suas ideias, mesmo quando você discorda?",a:["Sim, plenamente","Sim, exceto ideias que ameacem a democracia","Não, algumas ideologias deveriam ser proibidas","Não tenho opinião"],s:[-2,0,2,0],axis:"authority"},
-{cat:"Brasil e economia",q:"O governo deveria investir mais em empresas estatais e setores estratégicos como petróleo, energia e tecnologia?",a:["Sim, o Estado deve controlar setores estratégicos","Sim, mas empresas privadas também devem participar","Não, prefiro privatizações","Depende do setor"],s:[-2,-1,2,0]},
-{cat:"Brasil e economia",q:"Programas sociais como Bolsa Família são importantes?",a:["Sim, devem ser ampliados","Sim, mas com fiscalização e critérios rigorosos","Não, criam dependência do Estado","Não tenho opinião"],s:[-2,-1,2,0]},
-{cat:"Brasil e nação",q:"O Brasil deveria ter uma política migratória mais rígida, priorizando pessoas que contribuam para o país?",a:["Sim, bastante rígida","Sim, mas equilibrada e humanitária","Não, imigração deveria ser mais livre","Não tenho opinião"],s:[2,1,-2,0],axis:"nation"},
-{cat:"Brasil e democracia",q:"Se um líder eleito enfraquecesse Congresso e Judiciário para implementar políticas, você…",a:["Seria contra, mesmo concordando com suas políticas","Aceitaria em algumas circunstâncias","Apoiaria se trouxesse resultados positivos","Não tenho opinião"],s:[-2,0,2,0],axis:"authority"},
-{cat:"Brasil e visão de país",q:"Qual frase mais representa sua visão política?",a:["O Estado deve reduzir desigualdades e proteger trabalhadores","Liberdade individual e livre mercado devem ser prioridades","Tradição, família, religião e ordem devem ser protegidas","O país precisa de um líder forte, nacionalista e capaz de promover mudanças","Quero combinar proteção social, valores tradicionais e patriotismo","Nenhuma dessas representa bem minha visão"],s:[-2,2,1,2,-1,0,0],axis:"blend"}
+const choices=["Discordo totalmente","Discordo em parte","Depende / posição intermediária","Concordo em parte","Concordo totalmente"];
+// scores use -2..+2; axis meanings are explained in the result.
+const Q=[
+["Economia","O governo deveria aumentar impostos sobre grandes fortunas e heranças para financiar serviços públicos.","A proposta envolve redistribuição de riqueza e financiamento estatal.",{"econ":2}],
+["Economia","Empresas estatais devem permanecer atuantes em setores como energia, petróleo e transporte estratégico.","Avalie a presença do Estado como proprietário de empresas.",{"econ":2}],
+["Economia","A concorrência privada costuma oferecer serviços melhores que empresas públicas, inclusive em setores essenciais.","Considere eficiência, acesso e controle público.",{"econ":-2}],
+["Economia","O governo deveria garantir serviços universais de saúde e educação, mesmo que isso exija carga tributária maior.","",{"econ":2}],
+["Economia","Regulações trabalhistas deveriam ser flexibilizadas para facilitar contratações, mesmo reduzindo algumas proteções.","",{"econ":-2}],
+["Economia","O salário mínimo deveria aumentar acima da inflação quando a economia permitir.","",{"econ":2}],
+["Economia","O governo deveria reduzir subsídios e incentivos a empresas, mesmo que alguns setores estratégicos percam apoio.","",{"econ":-2}],
+["Economia","Em crises, o Estado deve investir diretamente para estimular emprego e atividade econômica.","",{"econ":2}],
+["Economia","O controle de preços pelo governo costuma causar mais problemas do que soluções.","",{"econ":-2}],
+["Economia","Sindicatos devem ter poder de negociação coletiva significativo perante empregadores.","",{"econ":2}],
+["Costumes e sociedade","O aborto deveria ser legalizado, com regras e limites definidos em lei.","",{"social":-2}],
+["Costumes e sociedade","A legislação deve permitir que adultos usem cannabis de forma regulamentada.","",{"social":-2}],
+["Costumes e sociedade","Casais do mesmo sexo devem ter exatamente os mesmos direitos civis e familiares que casais heterossexuais.","",{"social":-2}],
+["Costumes e sociedade","Valores religiosos deveriam influenciar diretamente a elaboração das leis nacionais.","",{"social":2}],
+["Costumes e sociedade","A escola pública deve abordar diversidade de gênero e orientação sexual de forma adequada à idade.","",{"social":-2}],
+["Costumes e sociedade","Mudanças culturais rápidas devem ser limitadas para preservar costumes tradicionais.","",{"social":2}],
+["Costumes e sociedade","A liberdade individual deve prevalecer quando escolhas pessoais não prejudicam terceiros.","",{"social":-2}],
+["Democracia e liberdades","Mesmo em situações de crise, o governo deve respeitar decisões judiciais e limites constitucionais.","",{"liberty":-2}],
+["Democracia e liberdades","O governo deveria poder restringir a imprensa quando ela divulgar informações que considere prejudiciais ao país.","",{"liberty":2}],
+["Democracia e liberdades","Manifestações pacíficas contra o governo devem ser protegidas, mesmo quando defendem ideias impopulares.","",{"liberty":-2}],
+["Democracia e liberdades","Um líder eleito deveria poder contornar o Congresso e o Judiciário se alegar que tem apoio popular.","",{"liberty":2}],
+["Democracia e liberdades","A coleta de dados pessoais pelo Estado deve ser limitada e submetida a fiscalização independente.","",{"liberty":-2}],
+["Democracia e liberdades","Partidos e grupos políticos que defendem ideias extremas devem poder atuar, desde que não pratiquem violência ou crimes.","",{"liberty":-2}],
+["Segurança pública","Penas mais longas, por si só, são uma das principais formas de reduzir a criminalidade.","",{"security":2}],
+["Segurança pública","Investir em prevenção, educação, investigação e reinserção deve ser prioridade comparável ao policiamento ostensivo.","",{"security":-2}],
+["Segurança pública","A polícia deveria ter mais autonomia operacional, com mecanismos independentes de responsabilização por abusos.","",{"security":1}],
+["Segurança pública","O acesso civil a armas de fogo deveria ser ampliado para defesa pessoal, sob critérios legais.","",{"security":2}],
+["Segurança pública","O sistema prisional deve priorizar reabilitação e reintegração, além de responsabilizar pelo crime.","",{"security":-2}],
+["Nação e mundo","O Brasil deveria priorizar acordos internacionais e cooperação multilateral, mesmo quando isso limita parte de sua autonomia decisória.","",{"nation":-2}],
+["Nação e mundo","A proteção da indústria nacional pode justificar tarifas ou barreiras a produtos importados.","",{"nation":2}],
+["Nação e mundo","A imigração deveria ser facilitada para pessoas que trabalham, estudam ou buscam proteção, com processos claros.","",{"nation":-2}],
+["Nação e mundo","O país deve evitar depender de potências estrangeiras em áreas como tecnologia, defesa e energia.","",{"nation":2}],
+["Nação e mundo","A integração econômica global geralmente beneficia o Brasil mais do que prejudica.","",{"nation":-2}],
+["Meio ambiente e tecnologia","O governo deve impor regras ambientais rigorosas, mesmo que aumentem custos de algumas atividades econômicas.","",{"green":2}],
+["Meio ambiente e tecnologia","A exploração de petróleo deve continuar enquanto houver demanda e viabilidade econômica, mesmo diante de metas climáticas.","",{"green":-2}],
+["Meio ambiente e tecnologia","O Estado deve regular grandes plataformas digitais para proteger privacidade e conter abusos de poder de mercado.","",{"green":2}],
+["Meio ambiente e tecnologia","A inovação tecnológica deve ter poucas restrições governamentais, salvo riscos comprovados.","",{"green":-2}],
+["Meio ambiente e tecnologia","A transição energética deve receber investimento público, com medidas para proteger trabalhadores afetados.","",{"green":2}],
+["Meio ambiente e tecnologia","O desenvolvimento econômico deve ter prioridade sobre novas restrições ambientais quando houver conflito direto.","",{"green":-2}]
 ];
-let index=0,selected=Array(questions.length).fill(null);
-const $=id=>document.getElementById(id);
-$("start").onclick=()=>{$("intro").classList.add("hidden");$("quiz").classList.remove("hidden");render()};
-function render(){let q=questions[index];$("stepText").textContent=`Pergunta ${index+1} de ${questions.length}`;$("pct").textContent=Math.round((index+1)/questions.length*100)+"%";$("bar").style.width=((index+1)/questions.length*100)+"%";$("category").textContent=q.cat;$("question").textContent=q.q;$("answers").innerHTML="";
-q.a.forEach((a,i)=>{let b=document.createElement("button");b.className="answer"+(selected[index]===i?" selected":"");b.innerHTML=`<span class="letter">${String.fromCharCode(65+i)}</span><span>${a}</span>`;b.onclick=()=>{selected[index]=i;renderAnswers();$("next").disabled=false};$("answers").appendChild(b)});
-$("back").disabled=index===0;$("next").textContent=index===questions.length-1?"Ver meu resultado →":"Próxima →";$("next").disabled=selected[index]===null}
-function renderAnswers(){[...$("answers").children].forEach((b,i)=>b.classList.toggle("selected",selected[index]===i));$("next").disabled=selected[index]===null}
-$("back").onclick=()=>{if(index>0){index--;render()}};
-$("next").onclick=()=>{if(selected[index]===null)return;if(index<questions.length-1){index++;render()}else showResult()};
-function avgAxis(predicate,scale){let vals=[];questions.forEach((q,i)=>{if(predicate(q,i)&&selected[i]!==null){let val=q.s[selected[i]]||0;vals.push(val)}});if(!vals.length)return 0;return vals.reduce((a,b)=>a+b,0)/vals.length}
-function norm(v){return Math.max(0,Math.min(100,50+(v/2)*50))}
-function showResult(){
-let econ=avgAxis(q=>!q.axis||q.axis==="econ",[0]); // default all questions economic scoring for econ axis
-// Explicitly limit economic axis to economy and Brasil/economy questions
-let econIndices=[0,1,2,3,4,20,21,24];
-let eVals=econIndices.map(i=>selected[i]===null?0:questions[i].s[selected[i]]||0);econ=eVals.reduce((a,b)=>a+b,0)/econIndices.length;
-let social=avgAxis(q=>q.axis==="social"),authority=avgAxis(q=>q.axis==="authority"),nation=avgAxis(q=>q.axis==="nation");
-let e=norm(econ),s=norm(social),a=norm(authority),n=norm(nation);
-let title, intro, chips=[],desc=[];
-if(e<43){chips.push("Centro-esquerda econômica","Intervencionismo");desc.push("Suas respostas indicam maior apoio à redistribuição, políticas públicas e atuação estatal na economia.");}
-else if(e>57){chips.push("Centro-direita econômica","Liberalismo econômico");desc.push("Suas respostas apontam preferência por mercado e menor intervenção econômica.");}
-else{chips.push("Economia de centro / mista");desc.push("Você combina posições de mercado com atuação pública, sem um polo econômico muito dominante.");}
-if(s>58){chips.push("Conservadorismo social");desc.push("Você tende a valorizar tradições, religião e limites morais em questões sociais.");}
-else if(s<42){chips.push("Progressismo social");desc.push("Você tende a apoiar mudanças sociais e maior liberdade individual.");}
-else{chips.push("Costumes moderados / mistos");desc.push("Suas posições culturais combinam elementos conservadores e progressistas.");}
-if(a>62){chips.push("Autoridade / liderança forte");desc.push("Você dá peso elevado à ordem, à autoridade e à capacidade de decisão do governo.");}
-else if(a<38){chips.push("Institucionalismo / libertário");desc.push("Você dá prioridade a limites institucionais e liberdades diante do poder estatal.");}
-else{chips.push("Equilíbrio entre autoridade e liberdades");desc.push("Você combina preocupação com ordem e respeito a controles institucionais.");}
-if(n>58){chips.push("Nacionalismo");desc.push("Você valoriza soberania e prioridade aos interesses nacionais.");}
-else if(n<42){chips.push("Internacionalismo");desc.push("Você dá maior peso à cooperação internacional.");}
-let titleParts=[];if(n>58)titleParts.push("nacionalista");if(s>58)titleParts.push("conservador");if(e<43)titleParts.push("desenvolvimentista");if(a>62)titleParts.push("favorável à liderança forte");
-title=titleParts.length?titleParts.join(" "):"Perfil político plural / moderado";
-intro="A leitura mais próxima das suas respostas é: "+title+". Isso é uma aproximação baseada nas respostas, não uma identidade fixa.";
-$("resultTitle").textContent=title.charAt(0).toUpperCase()+title.slice(1);$("resultIntro").textContent=intro;
-const axes=[["Economia","Esquerda econômica","Direita econômica",e,"Indicador de intervenção e redistribuição"],["Costumes","Progressista","Conservador",s,"Indicador de valores sociais"],["Autoridade","Libertário / institucional","Autoritário / liderança forte",a,"Indicador de preferência por ordem e poderes"],["Nacionalismo","Internacionalista","Nacionalista",n,"Indicador de prioridade nacional"]];
-$("axes").innerHTML=axes.map(x=>`<div class="axis"><div class="axis-title">${x[0]}</div><div class="axis-desc">${x[4]}</div><div class="axis-line"><div class="marker" style="left:${x[3]}%"></div></div><div class="axis-labels"><span>${x[1]}</span><span>${x[2]}</span></div></div>`).join("");
-$("ideologies").innerHTML=chips.map(c=>`<span class="chip">${c}</span>`).join("");$("ideologyText").textContent="Correntes que podem servir como referências de comparação — não significa que você pertença integralmente a elas.";
-$("summary").innerHTML=desc.map(d=>`<p>${d}</p>`).join("");
-$("quiz").classList.add("hidden");$("result").classList.remove("hidden");window.scrollTo({top:0,behavior:"smooth"});
-}
-$("restart").onclick=()=>{index=0;selected=Array(questions.length).fill(null);$("result").classList.add("hidden");$("intro").classList.remove("hidden");window.scrollTo({top:0,behavior:"smooth"})};
-$("print").onclick=()=>window.print();
-</script>
-</body>
-</html>
+const axes=[
+{id:"econ",name:"Economia",left:"Mais mercado",right:"Mais intervenção estatal",desc:"Papel do Estado na economia, redistribuição e serviços públicos."},
+{id:"social",name:"Costumes e sociedade",left:"Mais progressista",right:"Mais conservador",desc:"Direitos individuais, costumes e influência religiosa."},
+{id:"liberty",name:"Democracia e liberdades",left:"Mais liberal-democrático",right:"Mais permissivo ao poder concentrado",desc:"Liberdades civis, limites institucionais e controle do poder."},
+{id:"security",name:"Segurança pública",left:"Prevenção e reinserção",right:"Punitivismo / endurecimento",desc:"Ênfase em prevenção, reabilitação, punição e armamento."},
+{id:"nation",name:"Nação e mundo",left:"Cooperação internacional",right:"Soberania e prioridade nacional",desc:"Globalização, autonomia nacional e protecionismo."},
+{id:"green",name:"Meio ambiente e tecnologia",left:"Regulação e precaução",right:"Menos restrições / prioridade econômica",desc:"Regulação ambiental, tecnológica e transição energética."}
+];
+let idx=0, answers=Array(Q.length).fill(null);
+const qEl=document.getElementById("question"),bar=document.getElementById("bar"),count=document.getElementById("count"),prev=document.getElementById("prev"),next=document.getElementById("next");
+function render(){let q=Q[idx];count.textContent=`Questão ${idx+1} de ${Q.length}`;bar.style.width=`${(idx+1)/Q.length*100}%`;prev.disabled=idx===0;next.textContent=idx===Q.length-1?"Ver meu mapa →":"Próxima →";
+qEl.innerHTML=`<article class="question"><div class="section">${q[0]}</div><h2>${q[1]}</h2>${q[2]?`<p class="context">${q[2]}</p>`:""}<div class="choices">${choices.map((c,i)=>`<label class="choice"><input type="radio" name="answer" value="${i-2}" ${answers[idx]===i-2?"checked":""}><span>${c}</span></label>`).join("")}<label class="choice"><input type="radio" name="answer" value="skip" ${answers[idx]===null?"checked":""}><span>Prefiro pular esta pergunta</span></label></div></article>`;
+qEl.querySelectorAll("input").forEach(input=>input.addEventListener("change",()=>{answers[idx]=input.value==="skip"?null:Number(input.value)}));}
+prev.onclick=()=>{if(idx>0){idx--;render();window.scrollTo({top:0,behavior:"smooth"})}};
+next.onclick=()=>{if(idx<Q.length-1){idx++;render();window.scrollTo({top:0,behavior:"smooth"})}else showResults()};
+function showResults(){document.getElementById("quiz").classList.add("hidden");const res=document.getElementById("results");res.classList.remove("hidden");let html=`<div class="eyebrow">Seu resultado</div><h2>Seu mapa de posições</h2><p>As barras mostram a tendência das suas respostas em cada eixo. Isso não determina uma ideologia única.</p>`;
+axes.forEach(a=>{let vals=Q.map((q,i)=>answers[i]===null?null:({[a.id]:q[3][a.id]}[a.id]!==undefined?q[3][a.id]*answers[i]/2:null)).filter(v=>v!==null); // score from item direction x response
+let raw=Q.map((q,i)=>q[3][a.id]!==undefined&&answers[i]!==null?q[3][a.id]*answers[i]/2:null).filter(v=>v!==null);
+let score=raw.length?raw.reduce((s,v)=>s+v,0)/raw.length:0;let pct=(score+2)/4*100;
+html+=`<div class="axis"><div class="axishead"><strong>${a.name}</strong><span>${raw.length} resposta(s)</span></div><div class="axishead"><span>${a.left}</span><span>${a.right}</span></div><div class="track"><span style="width:${pct}%"></span></div><div class="axisdesc">${a.desc}<br><strong>${raw.length<3?"Poucos dados nesta dimensão":score<-0.55?a.left:score>0.55?a.right:"Posição mista / intermediária"}</strong></div></div>`});
+html+=`<h3>Como interpretar</h3><p>Uma pessoa pode defender mercado na economia, ser conservadora nos costumes e liberal nas instituições — ou combinar outras posições. O resultado multidimensional preserva essas diferenças.</p><div><span class="tag">Sem rótulo forçado</span><span class="tag">Respostas puláveis</span><span class="tag">Eixos independentes</span></div><div class="actions"><button class="secondary" onclick="window.print()">Imprimir / salvar PDF</button><button onclick="location.reload()">Refazer teste</button></div>`;res.innerHTML=html;window.scrollTo({top:0,behavior:"smooth"});}
+render();
+</script></body></html>
